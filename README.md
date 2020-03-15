@@ -1,7 +1,10 @@
 # haiqing-wang-webdevspr2020-Assignment2
 Assignment2 for cs5610
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Heroku deployment: https://haiqing-wang-webdevspr2020-hw2.herokuapp.com/home
+
+
+#This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

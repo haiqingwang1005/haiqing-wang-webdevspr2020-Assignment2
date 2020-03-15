@@ -32,7 +32,7 @@ export default class Home extends React.Component {
                                 <Container>
                                     <h1>Let's Guess Password!</h1>
                                     <p>
-                                        A funny game
+                                        A funny game created by Haiqing Wang.
                                     </p>
                                 </Container>
                             </Jumbotron>
