@@ -1,9 +1,3 @@
-.stickyHeader {
-    position: sticky;
-    width: 100%;
-    background-color: purple;
-}
-
 .aboutTitle {
     font-weight: bold;
     padding-top: 15px;

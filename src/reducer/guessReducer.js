@@ -6,20 +6,19 @@ export default function guess(state =
                                            correctness: [],
                                            leftTimes: 0,
                                            targetWord: "",
-                                           success: false
+                                           success: false,
+                                           lose: false
                                        },
                                    action) {
     if (action.type === 'GUESS') {
         if (state.leftTimes === 0 || state.success) {
-            const next =  {
+            return {
                 guessedWords: [],
                 correctness: [],
                 leftTimes: 4,
                 targetWord: state.targetWord,
-                success: false
+                success: false,
             };
-            console.log(JSON.stringify(next));
-            return next;
         }
 
         const game = new Game();
@@ -28,27 +27,26 @@ export default function guess(state =
         const guessWords = [...state.guessedWords];
         guessWords.push(word);
         const success = (word === state.targetWord);
-        const correctness = [...state.correctness]
+        const lose = !success && (leftTimes === 0);
+        const correctness = [...state.correctness];
         correctness.push(game.getCorrectness(state.targetWord, word));
-        let next = {
+        return {
             guessedWords: guessWords,
             correctness: correctness,
             leftTimes: leftTimes,
             targetWord: state.targetWord,
-            success: success
+            success: success,
+            lose: lose
         };
-        console.log(JSON.stringify(next));
-        return next;
     } else if (action.type === 'RESET') {
-        const next = {
+        return {
             guessedWords: [],
             correctness: [],
             leftTimes: 4,
             targetWord: action.value,
-            success: false
+            success: false,
+            lose: false
         };
-        console.log(JSON.stringify(next));
-        return next;
     }
     return state;
 };

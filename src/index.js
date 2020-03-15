@@ -2,13 +2,11 @@ import React from 'react';
 import {render} from 'react-dom';
 import { Provider } from "react-redux";
 import reducer from "./reducer/reducers";
-import App from './app';
 import {createStore} from "redux";
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Home from "./pages/home";
 import About from "./pages/about";
-import PlayPage from "./pages/playPage";
-import HelloYou from './helloYou';
+import PlayPage from "./pages/play";
 
 const store = createStore(reducer);
 
@@ -20,9 +18,8 @@ render(
                 <Route exact path={"/"} component={Home}/>
                 <Route exact path={"/home"} component={Home}/>
                 <Route exact path={"/about"} component={About}/>
-                <Route exact path={"/counter"} component={App}/>
                 <Route exact path={"/play/:level?"} component={PlayPage}/>
-                <Route exact path={"/hello/:name?"} component={HelloYou}/>
+
                 {/* This last case is essentially the default case.  Good to have
                 if someone types in an incorrect URL.  A component can also be passed here*/}
                 <Route render={() => <h1>Not found!</h1>} />

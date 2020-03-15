@@ -31,6 +31,7 @@ class PlayBoard extends React.Component {
     }
 
     render() {
+
         if (!this.state.list) {
             return (
                 <PlaySpinner />
@@ -48,7 +49,6 @@ class PlayBoard extends React.Component {
                                 <br/>
                                 <GameOutput/>
                             </Col>
-
                         </Row>
                     </Container>
                 </div>

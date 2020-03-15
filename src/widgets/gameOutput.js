@@ -9,8 +9,6 @@ class GameOutput extends React.Component {
         const history = [];
 
         for (let i = 0; i < this.props.guessedWords.length; i++) {
-            console.log(`history ${this.props.guessedWords[i]}`);
-            console.log(`history ${this.props.correctness[i]}`);
             history.push({
                 word: this.props.guessedWords[i],
                 correctness: this.props.correctness[i]
@@ -37,7 +35,7 @@ class GameOutput extends React.Component {
     }
 
     renderLoseIfNeeded() {
-        if (!this.props.success && this.props.leftTimes === 0) {
+        if (this.props.lose) {
             return (
                 <div>User lose!</div>
             );
@@ -62,7 +60,7 @@ let mapStateToProps = (state, props) => {
         guessedWords: state.guess.guessedWords,
         correctness: state.guess.correctness,
         success: state.guess.success,
-        leftTimes: state.guess.leftTimes
+        lose: state.guess.lose
     };
 };
 export default connect(mapStateToProps, null)(GameOutput);

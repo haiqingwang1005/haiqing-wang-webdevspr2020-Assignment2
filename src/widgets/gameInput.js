@@ -11,7 +11,6 @@ class GameInput extends React.Component {
     render () {
         const leftTimes = this.props.leftTimes;
         const target = this.props.targetWord;
-        console.log(`target1 ${target}`);
 
         return (
             <Card>
@@ -20,10 +19,15 @@ class GameInput extends React.Component {
                 </CardTitle>
                 <CardBody>
                     <div className={"inputTitle"}>Guess the word: </div>
-                    <Input innerRef={this.inputWord}/>
+                    <Input innerRef={this.inputWord} disabled={this.props.success || this.props.lose}/>
                 </CardBody>
                 <CardFooter>
-                    <Button color={"primary"} onClick={() => {this.props.onGuess(this.inputWord.current.value, target)}} >Try it!</Button>
+                    <Button color={"primary"}
+                            disabled={this.props.success || this.props.lose}
+                            onClick={() => {this.props.onGuess(this.inputWord.current.value, target)}} >
+                        Try it!
+                    </Button>{' '}
+                    <Button href={"/home"}>Go Home</Button>
                 </CardFooter>
             </Card>
         );
@@ -45,7 +49,9 @@ let mapDispatchToProps = (dispatch, props) => {
 let mapStateToProps = (state, props) => {
     return {
         leftTimes: state.guess.leftTimes,
-        targetWord: state.guess.targetWord
+        targetWord: state.guess.targetWord,
+        success: state.guess.success,
+        lose: state.guess.lose
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(GameInput);
