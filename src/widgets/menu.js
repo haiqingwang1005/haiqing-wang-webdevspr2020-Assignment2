@@ -14,6 +14,9 @@ import {
 import chooseDifficulty from "../action/difficultyAction";
 import {connect} from "react-redux";
 
+/**
+ * The menu where user can choose difficulty, learn the game rules, and start the game.
+ */
 class Menu extends React.Component {
     constructor(props) {
         super(props);
@@ -65,6 +68,10 @@ class Menu extends React.Component {
                         </Container>
                     </CardBody>
                 </Card>
+                {/* I didn't figure out a way to decouple this widget into another file, as its visibility is controlled
+                by the current component.
+                From React 16.13.0, it will throw 'Cannot update a component from inside the function body of a different component'
+                // https://github.com/facebook/react/issues/18178*/}
                 <Modal isOpen={shouldShowModal} toggle={cancelModal}>
                     <ModalHeader toggle={cancelModal}>Modal title</ModalHeader>
                     <ModalBody>

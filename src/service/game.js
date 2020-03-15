@@ -1,5 +1,5 @@
 /**
- * Game logic class
+ * Game logic class. It is a helper class implement the game rules.
  */
 export default class Game {
 

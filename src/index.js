@@ -10,6 +10,9 @@ import PlayPage from "./pages/play";
 
 const store = createStore(reducer);
 
+/**
+ * Index the URL and page components.
+ */
 render(
     <Provider store={store}>
         <Router>
@@ -25,7 +28,6 @@ render(
                 <Route render={() => <h1>Not found!</h1>} />
             </Switch>
         </Router>
-        {/*<App />*/}
     </Provider>,
     document.getElementById('root')
 );

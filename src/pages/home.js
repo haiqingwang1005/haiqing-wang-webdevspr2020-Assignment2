@@ -13,6 +13,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/app.css';
 import Menu from "../widgets/menu";
 
+/**
+ * The home page
+ */
 export default class Home extends React.Component {
 
     constructor(props) {

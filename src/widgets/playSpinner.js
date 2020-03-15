@@ -2,6 +2,9 @@ import React from "react";
 import {Col, Container, Row, Spinner} from "reactstrap";
 import "../styles/app.css"
 
+/**
+ * A spinner indicating UI loading.
+ */
 export default class PlaySpinner extends React.Component {
     render() {
         return (

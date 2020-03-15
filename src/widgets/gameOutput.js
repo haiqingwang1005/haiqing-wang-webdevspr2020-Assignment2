@@ -2,6 +2,9 @@ import {connect} from "react-redux";
 import React from "react";
 import {Card, CardBody, ListGroupItem} from "reactstrap";
 
+/**
+ * The area that show user's play history.
+ */
 class GameOutput extends React.Component {
 
     renderHistoryResult() {

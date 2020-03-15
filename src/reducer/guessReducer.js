@@ -1,5 +1,13 @@
 import Game from "../service/game";
 
+/**
+ * Reducer function that manages the guess action and store.
+ *
+ * @param state the previous state.
+ * @param action the action object
+ * @returns {{correctness: *[], guessedWords: *[], success: boolean, lose: (boolean|boolean), targetWord: string, leftTimes: number}|{correctness: [], guessedWords: [], success: boolean, lose: boolean, targetWord: string, leftTimes: number}|{correctness: [], guessedWords: [], success: boolean, lose: boolean, targetWord: *, leftTimes: number}}
+ *          return a next state
+ */
 export default function guess(state =
                                        {
                                            guessedWords: [],
@@ -11,13 +19,15 @@ export default function guess(state =
                                        },
                                    action) {
     if (action.type === 'GUESS') {
-        if (state.leftTimes === 0 || state.success) {
+        if (state.leftTimes === 0 || state.lose || state.success) {
+            // The current state should be terminated!
             return {
                 guessedWords: [],
                 correctness: [],
                 leftTimes: 4,
                 targetWord: state.targetWord,
                 success: false,
+                lose: false
             };
         }
 

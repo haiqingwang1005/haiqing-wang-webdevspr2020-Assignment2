@@ -9,6 +9,9 @@ import GameInput from "./gameInput";
 import GameOutput from "./gameOutput";
 import resetAction from "../action/resetAction";
 
+/**
+ * The container of the game UI.
+ */
 class PlayBoard extends React.Component {
     constructor(props) {
         super(props);
@@ -57,8 +60,4 @@ class PlayBoard extends React.Component {
     }
 }
 
-let mapStateToProps = (state, props) => {
-    return {
-    };
-};
-export default connect(mapStateToProps, null)(PlayBoard);
+export default connect(null, null)(PlayBoard);

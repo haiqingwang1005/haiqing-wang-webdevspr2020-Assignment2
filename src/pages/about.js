@@ -9,6 +9,9 @@ import { Button,
     Container } from "reactstrap";
 import '../styles/app.css';
 
+/**
+ * The about page
+ */
 export default class About extends React.Component {
     render() {
         return (
