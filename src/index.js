@@ -1,18 +1,34 @@
-/*
-This code will be acting as the entryway into the code and will kickoff the React components.
-"the import X from 'Y';" is how we'll pull functions/classes from libraries!  You'll be doing this a lot.
-ReactDOM, and especially React, are libraries we'll need to import from to get React working.
-App and App.jsx haven't been made yet (we'll get to that soon).  This will be our first component.
-import './index.css' is how we'll import styling when necessary.  If we want to use a styling
-library like Bootstrap or Material-UI, we'll want to install a library and then import it like
-one of these libraries
-ReactDOM.render isn't logic you need to spend too much time with, but it's basically saying that
-it's going to be rendering the React component App (which we'll create in a second) on the root
-element of the HTML document (this is actually using the DOM API to find this element!)
-*/
-
 import React from 'react';
 import {render} from 'react-dom';
+import { Provider } from "react-redux";
+import reducer from "./reducer/reducers";
 import App from './app';
+import {createStore} from "redux";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Home from "./pages/home";
+import About from "./pages/about";
+import PlayPage from "./pages/playPage";
+import HelloYou from './helloYou';
 
-render(<App />, document.getElementById('root'));
+const store = createStore(reducer);
+
+render(
+    <Provider store={store}>
+        <Router>
+            <Switch>
+                {/* exact makes sure to render ONLY the given component, since this behaves like a switch case logic */}
+                <Route exact path={"/"} component={Home}/>
+                <Route exact path={"/home"} component={Home}/>
+                <Route exact path={"/about"} component={About}/>
+                <Route exact path={"/counter"} component={App}/>
+                <Route exact path={"/play/:level?"} component={PlayPage}/>
+                <Route exact path={"/hello/:name?"} component={HelloYou}/>
+                {/* This last case is essentially the default case.  Good to have
+                if someone types in an incorrect URL.  A component can also be passed here*/}
+                <Route render={() => <h1>Not found!</h1>} />
+            </Switch>
+        </Router>
+        {/*<App />*/}
+    </Provider>,
+    document.getElementById('root')
+);

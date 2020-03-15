@@ -1,0 +1,34 @@
+.stickyHeader {
+    position: sticky;
+    width: 100%;
+    background-color: purple;
+}
+
+.aboutTitle {
+    font-weight: bold;
+    padding-top: 15px;
+}
+.listTitle {
+    font-weight: bold;
+    font-style: italic;
+    padding-top: 15px;
+}
+
+.difficultyContent {
+    padding-top: 10px;
+}
+
+.playSpinner {
+    margin-top: 30px;
+}
+
+.listGroupItem {
+    display: block;
+    padding: 0px 15px;
+    margin-bottom: -1px;
+    line-height: 1em
+}
+
+.inputTitle {
+    margin-bottom: 5px;;
+}
